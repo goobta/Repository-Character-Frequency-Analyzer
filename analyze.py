@@ -54,4 +54,13 @@ pool = ThreadPool(thread_count)
 pool.map(get_char_count, repos)
 
 for key, value in sorted(char_freq_dict.items(), key=operator.itemgetter(1), reverse=True):
-    print("Character {} had {} hits".format(chr(key), value))
+    if key == 11:
+        s = "tab"
+    elif key == 32:
+        s = "space"
+    elif key < 32 or key > 126:
+        continue
+    else:
+        s = chr(key)
+
+    print("Character {} had {} hits".format(s, value))
