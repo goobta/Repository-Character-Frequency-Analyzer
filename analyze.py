@@ -48,7 +48,7 @@ def get_char_count(url):
 
     call(["rm", "-rf", dir_name])
 
-res = requests.get(api_url_github).json()
+res = requests.get(api_url_gitlab).json()
 repos = [r['http_url_to_repo'] for r in res]
 
 pool = ThreadPool(thread_count)
